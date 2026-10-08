@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Notification",
+    "description": "Push a message to your phone or another device when a task finishes, errors, or needs your input — through a custom HTTP push API, Bark, MeoW, or MiaoTixing."
+  }
+}

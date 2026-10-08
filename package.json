@@ -1,0 +1,70 @@
+{
+  "name": "dsh-notify-ultra",
+  "version": "0.1.0",
+  "description": "DSH 通知推送插件 — 任务完成/出错/需要确认时，通过任意轻量 HTTP(S) 推送 API（自定义 API、Bark、MeoW、喵提醒）把消息发到手机或其他设备。Web 与 Desktop 通用。",
+  "type": "module",
+  "main": "lib/host.js",
+  "icon": "icon.svg",
+  "exports": {
+    ".": "./lib/host.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "locale",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node tests/smoke.mjs && node tests/client-smoke.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "plugin",
+    "notification",
+    "push",
+    "bark",
+    "meow",
+    "miaotixing",
+    "webhook"
+  ],
+  "license": "MIT",
+  "author": "MrCashmere",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrCashmere/dsh-notify-ultra.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MrCashmere/dsh-notify-ultra/issues"
+  },
+  "homepage": "https://github.com/MrCashmere/dsh-notify-ultra#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-typert-protocol": "^0.2.0-rc.1",
+    "@deepseek-ai/schemastery": "^3.18.4"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-api-gateway",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  }
+}
